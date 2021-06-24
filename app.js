@@ -32,63 +32,154 @@
                         }
                     });
               });
-              el.addEventListener('changecolor', e =>{               
-                let colorp = e.detail.color;
+              el.addEventListener('changecolor', e =>{  
+                            
+                let colorp = color;
                 console.log("colorp",colorp);
                // let colorHex = Number(colorp.replace('#', '0x'));
-                let colorHex = '#ff6387';             
+                let colorHex =  Number(colorp.replace('#', '0x'));            
                 let color3D = new THREE.Color(colorHex);           
                 self.treeMat.color = color3D;                
               });
             }
           
         });
-         AFRAME.registerComponent('click-listener', {
-            init: function () {
-              // Listen for click event
-              let self = this;
+        
+
+           function color1(){
               let el = this.el;
               console.log(el);
-              this.el.addEventListener('click', function (evt) {   
+                
                 // Call the Octahedron and trigger it's scalewave animation
                 let tree = document.querySelector('#tree');
-                
-                let color = el.getAttribute('material', 'color');
-                
-               tree.emit('changecolor', color);
+                let colorRGB = button1.style.backgroundColor; 
+                console.log('get color', colorRGB);                  
                
-              });        
-            }
-           
-          });
-
-        /*   document.getElementById("button").addEventListener('click', function (evt) {   
+                ////////////////rbg to hex /////////////////////////
+                function componentFromStr(numStr, percent) {
+                  var num = Math.max(0, parseInt(numStr, 10));
+                  return percent ?
+                      Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
+              }
+              
+              function rgbToHex(rgb) {
+                  var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
+                  var result, r, g, b, hex = "";
+                  if ( (result = rgbRegex.exec(rgb)) ) {
+                      r = componentFromStr(result[1], result[2]);
+                      g = componentFromStr(result[3], result[4]);
+                      b = componentFromStr(result[5], result[6]);
+                  
+                      hex = "0x" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
+                  }
+                  return hex;
+              }
+              color = rgbToHex(colorRGB)
+              tree.emit('changecolor', color);
+              console.log("rgbtohex", color);    
+                          
+        }  
+        function color2(){
+          let el = this.el;
+          console.log(el);
+            
             // Call the Octahedron and trigger it's scalewave animation
             let tree = document.querySelector('#tree');
-            let color = el.getAttribute('material', 'color');
-            console.log(color);
-           tree.emit('changecolor', color);
-          }); */
-  
-    /*       var el = document.getElementById('button');
-            if(el){
-            el.addEventListener('click', function (evt) {   
-                // Call the Octahedron and trigger it's scalewave animation
-                let tree = document.querySelector('#tree');
-                let color = "#0000FF"
-               tree.emit('changecolor', color);
-            console.log(color);
-            
-            });
+            let colorRGB = button2.style.backgroundColor; 
+            console.log('get color', colorRGB);                  
            
+            ////////////////rbg to hex /////////////////////////
+            function componentFromStr(numStr, percent) {
+              var num = Math.max(0, parseInt(numStr, 10));
+              return percent ?
+                  Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
+          }
+          
+          function rgbToHex(rgb) {
+              var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
+              var result, r, g, b, hex = "";
+              if ( (result = rgbRegex.exec(rgb)) ) {
+                  r = componentFromStr(result[1], result[2]);
+                  g = componentFromStr(result[3], result[4]);
+                  b = componentFromStr(result[5], result[6]);
+              
+                  hex = "0x" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
+              }
+              return hex;
+          }
+          color = rgbToHex(colorRGB)
+          tree.emit('changecolor', color);
+          console.log("rgbtohex", color);    
+                      
+    }  
+    function color3(){
+      let el = this.el;
+      console.log(el);
         
-        } */
+        // Call the Octahedron and trigger it's scalewave animation
+        let tree = document.querySelector('#tree');
+        let colorRGB = button3.style.backgroundColor; 
+        console.log('get color', colorRGB);                  
+       
+        ////////////////rbg to hex /////////////////////////
+        function componentFromStr(numStr, percent) {
+          var num = Math.max(0, parseInt(numStr, 10));
+          return percent ?
+              Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
+      }
+      
+      function rgbToHex(rgb) {
+          var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
+          var result, r, g, b, hex = "";
+          if ( (result = rgbRegex.exec(rgb)) ) {
+              r = componentFromStr(result[1], result[2]);
+              g = componentFromStr(result[3], result[4]);
+              b = componentFromStr(result[5], result[6]);
+          
+              hex = "0x" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
+          }
+          return hex;
+      }
+      color = rgbToHex(colorRGB)
+      tree.emit('changecolor', color);
+      console.log("rgbtohex", color);    
+                  
+}  
+      
 
-        function color(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /*   function color (button) {
+          // Works in all browsers
+          console.log('1', button.style.backgroundColor); //use this, it works 
+
+          console.log('3', button.style.getAttribute ("backgroundColor"))
+
+          if (button.style.getPropertyValue) {
+            console.log('2', button.style.getPropertyValue ("background-color"));
+          } else {
+            console.log('3',button.style.getAttribute ("backgroundColor"));
+          }
+      } */
+
+
+
+        /* function color(){
             let tree = document.querySelector('#tree');      
             
             let color = "#c9002f"
             console.log(color);
             tree.emit('changecolor', color);
                       
-        }
+        } */
