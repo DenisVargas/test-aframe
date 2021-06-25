@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Aframe-Proyect</title>
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+</head>
+
+
+<body style="margin: 0px !important; margin-left: 100px !important; margin-top: 0px !important; overflow: hidden;">
+
+
+    <button id="myButton" onclick="superClic()"  style="z-index: 1"> hola </button> 
+<div class="group">
+    <button id="button1" onclick="color1(this)" style="background-color:#c9002f" position: absolute;
+margin-top: 300px; > color red </button> 
+<button id="button2" onclick="color2(this)" style="background-color:#0051ff"position: absolute;
+margin-top: 350px; > color blue </button> 
+<button id="button3" onclick="color3(this)" style="background-color:#00ff4c"position: absolute;
+margin-top: 200px; > color green </button> 
+  </div>
+
+
+  <!-- minimal loader shown until image descriptors are loaded -->
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
+
+  <div class="scene">
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+
+  >
+      <!-- embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;" -->
+    <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+    <a-nft
+      type="nft"
+      url="src\dataNFT\window\window"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+    
+      <a-entity
+        treeman
+        look-at="[camera]"
+        id="tree"
+        gltf-model="src\assets\Vase01.glb"
+        scale="5 5 5"
+        position="0 0 0"
+        rotation="0 -90 0"
+      >
+      </a-entity>
+    </a-nft>
+    <a-entity camera fov="60"></a-entity>
+  </a-scene>
+</div>
+</body>

@@ -3,12 +3,7 @@
     alert('Se ha dado clic al botón!');
     
 }
-   
-
-
-
-
-   
+      
    AFRAME.registerComponent('treeman', {
             init: function(){
                 let el = this.el;
