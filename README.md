@@ -28,8 +28,10 @@
 	PD: Mucho quidado con la indentación, es mas importante de lo que parece. Una forma copada de arreglarlo rápido si estas en VSCode es usar el comando: format.
 </li>
 <li>
-	Otro truquillo muy útil. En VSCode, una vez que sabes el tipo de una variable, puedes usar algo como 
-	<code>/** @type {HTMLElement} */</code> y esto te va a permitir listar mejor el autocompletado.
+	<pre>
+		Otro truquillo muy útil. En VSCode, una vez que sabes el tipo de una variable, puedes usar algo como 
+		<code>/** @type {HTMLElement} */</code> y esto te va a permitir listar mejor el autocompletado.
+	</pre>	
 </li>
 <li>
 	En js no utilices self como nombre de una variable. Es una palabra clave y de por si es peligrosa utilizarla ya que solo es válida en algunos contextos muy específicos.
