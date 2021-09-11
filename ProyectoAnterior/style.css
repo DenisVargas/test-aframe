@@ -1,15 +1,42 @@
+* {
+  margin: 0!important;
+  padding: 0!important;
+}
+body{
+  margin: 0px 100px !important;
+  overflow: hidden;
+}
+.scene{
+  height: 100px !important;
+  width: 100px !important;
+}
+
+.arjs-loader {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arjs-loader div {
+  text-align: center;
+  font-size: 1.25em;
+  color: white;
+}
+#arjs-video{
+  z-index: -9999;
+}
+
 #myButton{
   z-index: 1;
-  position: absolute;
-  margin-top: 250px;
-}  
-#cuadrado{
-  z-index: 1;
-  position: absolute;
-  margin-top: 250px;
-}  
+}
 #button1{
-  z-index: 1;
+  z-index: 999999;
   position: absolute;
   margin-top: 300px;
   background-color:#c9002f;
@@ -22,9 +49,9 @@
   font-size: 16px;
 }
 #button2{
-  z-index: 1;
+  z-index: 999999;
   position: absolute;
-  margin-top: 350px;
+  margin-top: 350px; 
   background-color:#0051ff;
   border: none;
   color: white;
@@ -35,9 +62,9 @@
   font-size: 16px;
 }
 #button3{
-  z-index: 1;
+  z-index: 9999991;
   position: absolute;
-  margin-top: 400px;
+  margin-top: 200px;
   background-color:#00ff4c;
   border: none;
   color: white;
